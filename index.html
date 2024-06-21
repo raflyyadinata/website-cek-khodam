@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Khodam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cek Khodam</h2>
+        <form id="khodamForm" action="#" method="POST">
+            <input type="text" id="nama" placeholder="Masukan Nama Kamu" name="nama">
+            <button type="submit">Cek</button>
+            <div id="result"></div>
+        </form>
+    </div>
+
+    <script>
+        const khodamNames = [
+            { name: "Agus", image: "https://tse4.mm.bing.net/th?id=OIP._G0JVRJWKsJDsMI9ePf1JwHaEK&pid=Api&P=0&h=180" },
+            { name: "Sigit Rendang", image: "https://tse3.mm.bing.net/th?id=OIP.1q51D31C5Tpjw2r2hVlsXgHaEK&pid=Api&P=0&h=180" },
+            { name: "Macan Cisewu", image: "https://i.pinimg.com/originals/08/d5/21/08d521ece636dc2448bf7e142c85cc72.jpg" },
+            { name: "Shrek", image: "https://i.pinimg.com/736x/41/2a/d5/412ad5a892c8ee2a31aff4a37d353eee.jpg" },
+            { name: "The Rock", image: "https://tse4.explicit.bing.net/th?id=OIP.Psz6bpEHoRR1avKza0-e_wAAAA&pid=Api&P=0&h=180" },
+            { name: "Rangers Merah", image: "https://i.ytimg.com/vi/S2R-TXC00tE/hq2.jpg?sqp=-oaymwEoCOADEOgC8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYfyATKBYwDw==&rs=AOn4CLB2V7QTGoPJQozGcCDB22lQM-Bi9g" },
+            { name: "Rangers Pink", image: "https://i.pinimg.com/originals/5e/e5/0e/5ee50e4d4ca24a1f20c25acceb476894.png" },
+            { name: "Jalan Becek", image: "https://1.bp.blogspot.com/-xUodRiXpu_g/XaDQjRRp09I/AAAAAAAAUdc/cUKaWrTjM0YG5shWdcaBLWoVuE5xUqgAgCLcBGAsYHQ/s1600/11-berita-1-5.jpg" },
+            { name: "Gigi", image: "https://tse3.mm.bing.net/th?id=OIP.DrdZtSKP8u2y_1bNfMPTEgHaFv&pid=Api&P=0&h=180" },
+            { name: "Atta Halilintar", image: "https://cdn.idntimes.com/content-images/post/20190204/img-20190203-235941-16c3a8a0cf0a39303830e8e107fd60d6.JPG" },
+            { name: "Icikiwir", image: "https://tse1.mm.bing.net/th?id=OIP.xeSRk4tQO-afQ2Dlsd1ClwHaGX&pid=Api&P=0&h=180" },
+            { name: "anya", image: "https://media.suara.com/suara-partners/poptren/thumbs/1200x675/2022/10/07/1-kekeyi-cosplay-jadi-anya-forger-bikin-netizen-sedih-dok-instagram.jpg" },
+            { name: "peri ", image: "https://tse2.mm.bing.net/th?id=OIP.CbC1BbsVX1f4C7uIHj75MwHaJQ&pid=Api&P=0&h=180" },
+            { name: "Gitar Spanyol", image: "https://tse4.mm.bing.net/th?id=OIP.M-vYv_Rxpz4vlb9bEKUq0QHaDv&pid=Api&P=0&h=180" },
+        ];
+
+        document.getElementById('khodamForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('nama').value.trim();
+            if (nama === '') {
+                alert('Nama tidak boleh kosong!');
+                return;
+            }
+
+            const randomKhodam = khodamNames[Math.floor(Math.random() * khodamNames.length)];
+            document.getElementById('result').innerHTML = `
+                <img src="${randomKhodam.image}" alt="${randomKhodam.name}" class="imgs">
+                <p class="text-2xl text-blue-500 font-bold">${randomKhodam.name}</p>
+                
+            `;
+            
+            document.getElementById('nama').value = '';
+        });
+    </script>
+</body>
+</html>
